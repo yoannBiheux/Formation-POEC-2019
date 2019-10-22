@@ -1,6 +1,16 @@
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+
+
 
 
 public class Test 
@@ -9,7 +19,29 @@ public class Test
 	public static void main(String[] args) 
 	{
 		//parcourirListe();
-		parcourirAvecIterator();
+		//parcourirAvecIterator();
+		
+		
+//		Integer [] tab = {2, 3, 5, 1, 9};
+//		List<Integer> listeIntegers =new LinkedList<Integer>(Arrays.asList(tab));
+//		for(Object elt:listeIntegers)
+//		{
+//			System.out.print(elt+" ");
+//		}
+//		
+//		//ou plus simple
+//		List<Integer> entIntegers = Arrays.asList(tab);
+//		//ou
+//		List<Integer> entIntegers2 = Arrays.asList(2,8,6,1);
+		
+		//hashSetIterator();
+		//treeSet();
+		
+		//HashTable();
+		
+		hashMap();
+		
+		
 		
 
 
@@ -65,6 +97,102 @@ public class Test
 		{
 			System.out.println(li.next());
 		}
+	}
+	
+	public static void hashSetIterator()
+	{
+		//pas de doublon possible 
+		HashSet hs = new HashSet();
+		hs.add("bonjour");
+		hs.add("bonjour");
+		hs.add(2);
+		hs.add('c');
+		hs.add('c');
+		hs.add(9);
+		
+		Iterator it = hs.iterator();
+		
+		while(it.hasNext())
+		{
+			System.out.println(it.next());
+		}
+		
+		
+	}
+	
+	public static void treeSet()
+	{
+		//liste triée
+		TreeSet ts = new TreeSet();
+		ts.add(5);
+		ts.add(8);
+		ts.add(1);
+		ts.add(47);
+		ts.add(28);
+
+		
+		Iterator iterator =ts.iterator();
+		while(iterator.hasNext())
+		{
+			System.out.println(iterator.next());
+		}
+		
+		TreeSet ts2 = new TreeSet();
+		ts2.add('r');
+		ts2.add('a');
+		ts2.add('b');
+		ts2.add('z');
+		ts2.add('j');
+
+		
+		Iterator iterator2 =ts2.iterator();
+		while(iterator2.hasNext())
+		{
+			System.out.println(iterator2.next());
+		}
+	}
+	
+	public static void HashTable()
+	{
+		//hashtable fonctionne avec couple (clé,valeur), n'accepte pas null et clé doit être unique
+		// parcourir avec objet enumeration
+		
+		Hashtable ht = new Hashtable();
+		ht.put(1, "Java");
+		ht.put(5, "PHP");
+		ht.put(3, "C++");
+		ht.put(4, "Pascal");
+		Enumeration e = ht.elements();
+		while(e.hasMoreElements())
+		{
+			System.out.println("hascode= "+e.hashCode()+" elt= "+e.nextElement());
+
+		}
+		
+	}
+	
+	public static void hashMap()
+	{
+		// fonctionne aussi avec couple (clé,valeur), utilise aussi une table de hachage(tri par clé), accepte null,CLE DOIT ETRE UNIQUE
+		// parcourir avec set
+		
+		
+		HashMap<Integer, String> hm = new HashMap();
+		hm.put(1, "Java");
+		hm.put(5, "PHP");
+		hm.put(3, "C++");
+		hm.put(4, "Pascal");
+		hm.put(null, "c#");
+		
+		Set s = hm.entrySet();
+		
+		Iterator it = s.iterator();
+		
+		while(it.hasNext())
+			System.out.println(it.next());
+		
+		
+		
 	}
 
 }
