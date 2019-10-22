@@ -1,13 +1,18 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+
 
 
 
@@ -39,13 +44,7 @@ public class Test
 		
 		//HashTable();
 		
-		hashMap();
-		
-		
-		
-
-
-		
+		exercice2();
 
 	}
 	
@@ -190,9 +189,58 @@ public class Test
 		
 		while(it.hasNext())
 			System.out.println(it.next());
+
+	}
+	
+	public static void exercice1() 
+	{
+		Map<String,Integer> repetition = new HashMap();
+		repetition.put("Java", 2);
+		repetition.put("PHP", 5);
+		repetition.put("C++", 1);
+		repetition.put("HTML", 4);
 		
+		
+		
+		for(Entry<String,Integer> e: repetition.entrySet())
+		{
+			for(int i=0;i<e.getValue();i++)
+				System.out.print(e.getKey());
+			
+			System.out.print(" ");
+		}
+
+	}
+	
+	public static void exercice2()
+	{
+		List list = Arrays.asList(2,5,"Bonjour",10f,true,'c',"3","b",false,10);
+		
+		HashMap<String, Integer> hashMap = new HashMap<String, Integer>();
+		
+		for(Object elt:list)
+		{
+			String classe = elt.getClass().getSimpleName();
+			if(hashMap.containsKey(classe))
+				hashMap.replace(classe, hashMap.get(classe)+1);
+			else
+				hashMap.put(classe, 1);
+			
+		}
+		Set s = hashMap.entrySet();
+		
+		Iterator it = s.iterator();
+		
+		while(it.hasNext())
+			System.out.println(it.next());
 		
 		
 	}
+	/*ArrayList est plus rapide pour l operation de recherche (get)
+	LinkedList est plus rapide pour des operations d’insertion et de suppression
+	LinkedList utilise un chainage double (deux pointeurs) d’ou une
+	consommation de memoire plus elevee.*/
+	
+
 
 }
