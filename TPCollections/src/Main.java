@@ -1,15 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 import Exceptions.OperationExceptions;
-
-import java.util.Map.Entry;
 
 public class Main {
 
@@ -79,16 +70,55 @@ public class Main {
 ////				System.out.println(e.getValue().toString());
 //	
 //		}
+		boolean arreter =true;
 		
-		Nombre nb1 = new Nombre(-9,7);
-		Operation op = new Operation(nb1);
-		try 
+		while (arreter==true)
 		{
-			op.division();
-		} catch (OperationExceptions e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Scanner scanner = new Scanner(System.in);
+			Nombre nb1 = new Nombre();
+			Operation op = new Operation(nb1);
+			
+			System.out.println("Veuillez entrer un 1er chiffre");
+			nb1.setVar1(scanner.nextInt());
+			
+			
+			System.out.println("Veuillez entrer un 2e chiffre");
+			nb1.setVar2(scanner.nextInt());
+			
+			System.out.println("Veuillez saisir 1 si vous voulez le résultat de la division et 2 si vous voulez le résultat de la racine carée de la somme");
+			int opChoisie = scanner.nextInt();
+		
+			double result=0;
+			
+			try 
+			{
+				if(opChoisie==1)
+				{
+					result = op.division();
+					
+				}
+				else if (opChoisie==2)
+				{
+					result=op.racineDeLaSomme();
+		
+				}
+				else
+					System.out.println("Vous n'avez saisi ni 1 ni 2!!");
+				
+			} catch (OperationExceptions e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(result);
+			
+			System.out.println("Voulez-vous recommencer? O/N");
+			char rep = scanner.next().charAt(0);
+			
+			if(rep=='O')
+				arreter=true;
+			else
+				arreter=false;
 		}
 		
 		

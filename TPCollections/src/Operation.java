@@ -18,19 +18,20 @@ public class Operation
 		this.nombre = nombre;
 	}
 	
-	public  int division() throws OperationExceptions
+	public  double division() throws OperationExceptions
 	{
 		if(this.getNombre().getVar2()==0)
 			throw new OperationExceptions(1);		
-		return this.getNombre().getVar1()/this.getNombre().getVar2();
+		return this.nombre.getVar1()/this.nombre.getVar2();
 	}
 	
-	public int racineDeLaSomme() throws OperationExceptions
+	public double racineDeLaSomme() throws OperationExceptions
 	{
-		if((this.getNombre().getVar1()+this.getNombre().getVar2())<0)
+		
+		if((this.nombre.getVar1()+this.nombre.getVar2())<0)
 			throw new OperationExceptions(2);
 		
-		return 0;
+		return Math.sqrt((double)this.nombre.getVar1()+this.nombre.getVar2());
 	}
 	
 	

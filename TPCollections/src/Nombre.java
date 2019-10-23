@@ -21,6 +21,11 @@ public class Nombre
 		this.var1 = var1;
 		this.var2 = var2;
 	}
+	public Nombre() 
+	{
+
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 	

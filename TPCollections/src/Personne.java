@@ -1,6 +1,12 @@
-
+/**
+ * 
+ * @author yoann biheux
+ * 
+ *
+ */
 public class Personne 
 {
+	
 	
 	private int num;
 	private String nom;
@@ -37,6 +43,9 @@ public class Personne
 
 	}
 	
+	/**
+	 * @return this.nom+" "+this.prenom
+	 */
 	public String getNomPrenom()
 	{
 		return this.nom+" "+this.prenom;
