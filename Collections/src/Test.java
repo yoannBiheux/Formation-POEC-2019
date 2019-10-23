@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -44,7 +45,8 @@ public class Test
 		
 		//HashTable();
 		
-		exercice2();
+		//exercice2();
+		methodesUtiles();
 
 	}
 	
@@ -235,6 +237,24 @@ public class Test
 			System.out.println(it.next());
 		
 		
+	}
+	
+	public static void methodesUtiles()
+	{
+		List<String> lettres = new ArrayList<String>();
+		lettres.add("d");
+		lettres.add("b");
+		lettres.add("a");
+		lettres.add("c");
+		Collections.sort(lettres); // pour trier la liste
+		System.out.println(lettres);
+		Collections.shuffle(lettres); // pour desordonner la liste
+		System.out.println(lettres);
+		List<String> sub = lettres.subList(1, 3); // extraire une sousliste
+		System.out.println("sous-liste: "+sub);
+		Collections.reverse(lettres); // pour trier la liste dans le sens decroissant
+		System.out.println(lettres);
+
 	}
 	/*ArrayList est plus rapide pour l operation de recherche (get)
 	LinkedList est plus rapide pour des operations d’insertion et de suppression

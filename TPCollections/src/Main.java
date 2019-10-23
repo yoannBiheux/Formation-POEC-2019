@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,8 +34,6 @@ public class Main {
 //					if (sousChaineString.equals(e.getValue().toString())) 
 //					{
 //						newString = newString + e.getKey().toString() + " ";
-//						break;
-//
 //					}
 //					
 //				}
@@ -58,16 +59,28 @@ public class Main {
 		personnes.put(p4.getNomPrenom(), p4);
 		personnes.put(p5.getNomPrenom(), p5);
 		
-		
+		int compteur=1;
 		
 		for(Entry<String,Personne> e: personnes.entrySet())
 		{
-			if(e.getValue().getNum()%2==0)
+			
+			if(compteur%2==0)
 				System.out.println(e.getKey());
 			else
-				System.out.println(e.getValue());
+				System.out.println(e.getValue().toString());
+			compteur++;
+		
+//			if(e.getValue().getNum()%2==0)
+//				System.out.println(e.getKey());
+//			else
+//				System.out.println(e.getValue().toString());
 	
 		}
+		
+		
+		
+		
+		
 		
 		
 		

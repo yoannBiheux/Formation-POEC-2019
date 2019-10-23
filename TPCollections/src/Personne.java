@@ -41,6 +41,12 @@ public class Personne
 	{
 		return this.nom+" "+this.prenom;
 	}
+	@Override
+	public String toString() {
+		return "Personne [num=" + num + ", nom=" + nom + ", prenom=" + prenom + "]";
+	}
+	
+	
 	
 	
 	
