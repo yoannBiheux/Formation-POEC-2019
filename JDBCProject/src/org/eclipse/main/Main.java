@@ -100,8 +100,19 @@ public class Main {
 //			for(Personne pers:l)
 //				System.out.println(pers);
 			
-			Personne p6 = personneDaoImpl.findById(6);
-			System.out.println(p6);
+//			Personne p6 = personneDaoImpl.findById(6);
+//			personneDaoImpl.remove(personneDaoImpl.findById(6));
+//			personneDaoImpl.getAll();
+//			List<Personne> l = personneDaoImpl.getAll();
+//			
+//			for(Personne pers:l)
+//				System.out.println(pers);
+			
+			Personne p25 = personneDaoImpl.findById(7);
+
+			p25.setNom("pineau");
+			personneDaoImpl.update(p25);
+			
 
 	}
 

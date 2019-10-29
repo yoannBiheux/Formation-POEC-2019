@@ -12,6 +12,8 @@ import java.util.List;
 import org.eclipse.config.MyConnection;
 import org.eclipse.model.Personne;
 
+
+
 public class PersonneDaoImpl implements PersonneDao {
 
 	@Override
@@ -45,9 +47,11 @@ public class PersonneDaoImpl implements PersonneDao {
 		if(c!=null)
 		{
 			try {
-				System.out.println(requete);
-				PreparedStatement ps = c.prepareStatement(requete);
-				ps.executeUpdate();
+				if(personne.getNum()!=0)
+				{
+					PreparedStatement ps = c.prepareStatement(requete);
+					ps.executeUpdate();
+				}
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -63,13 +67,27 @@ public class PersonneDaoImpl implements PersonneDao {
 	public void update(Personne personne) {
 		Connection c = MyConnection.getConnection();
 
-		String requete = "update personne set nom=" + personne.getNom() + ",prenom=" + personne.getPrenom()
-				+ " where num=" + personne.getNum();
+		String requete = "update personne set nom='" + personne.getNom() + "',prenom='" + personne.getPrenom()
+				+ "' where num=" + personne.getNum();
 
 		if (c != null) {
 			try {
-				PreparedStatement ps = c.prepareStatement(requete);
-				ps.executeUpdate();
+
+					Statement ps = c.createStatement();
+					if(personne.getNum()!=0)
+					{
+						int res=ps.executeUpdate(requete);
+						
+						System.out.println(res);
+						if(res>=1)
+							System.out.println("update effectuée");
+						else
+							System.out.println("probleme de mise à jour");
+					}
+					else
+					{
+						System.out.println("la personne n'existe pas");
+					}
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -89,12 +107,15 @@ public class PersonneDaoImpl implements PersonneDao {
 			try {
 				Statement s = c.createStatement();
 				ResultSet r = s.executeQuery(requete);
-
-				while (r.next()) {
+				if( r.next()){
 					p.setNum(r.getInt("num"));
 					p.setNom(r.getString("nom"));
-					p.setNom(r.getString("prenom"));
+					p.setPrenom(r.getString("prenom"));
 
+				}
+				else
+				{
+					System.out.println("personne n'existe pas");
 				}
 
 			} catch (SQLException e) {
