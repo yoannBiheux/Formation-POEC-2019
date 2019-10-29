@@ -14,7 +14,7 @@ import org.eclipse.model.Personne;
 
 
 
-public class PersonneDaoImpl implements PersonneDao {
+public class PersonneDaoImpl implements Dao<Personne> {
 
 	@Override
 	public int save(Personne personne) {
