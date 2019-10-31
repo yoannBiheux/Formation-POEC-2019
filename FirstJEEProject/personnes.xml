@@ -1,0 +1,15 @@
+
+<personnes>
+	<personne id="1">
+		<nom>schwarzeneger</nom>
+		<prenom>john</prenom>
+	</personne>
+	<personne id="2">
+		<nom>white</nom>
+		<prenom>alain</prenom>
+	</personne>
+	<personne id="3">
+		<nom>pineau</nom>
+		<prenom>carine</prenom>
+	</personne>
+</personnes>
