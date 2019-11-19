@@ -17,6 +17,14 @@
 	<servlet-name>TestServlet</servlet-name>
 	<url-pattern>/mapage</url-pattern>
   </servlet-mapping>
+    <servlet>
+	<servlet-name>PersonneServlet</servlet-name>
+	<servlet-class>org.eclipse.controller.PersonneServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>PersonneServlet</servlet-name>
+	<url-pattern>/AjoutPersonne</url-pattern>
+  </servlet-mapping>
   <jsp-config>
     <jsp-property-group>
        <url-pattern> *.jsp </url-pattern>
