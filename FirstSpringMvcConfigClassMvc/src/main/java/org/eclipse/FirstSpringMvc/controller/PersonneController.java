@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.FirstSpringMvc.dao.PersonneRepository;
 import org.eclipse.FirstSpringMvc.model.Personne;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@Secured("ROLE_ADMIN")
 public class PersonneController 
 {
-	@Autowired
+
 	private PersonneRepository personneRepository;
 	
 	@GetMapping(value="/addPersonne")
@@ -37,7 +39,7 @@ public class PersonneController
 		mView.addObject("prenom",prenom);
 		return mView;
 	}
-	
+	@Secured("ROLE_USER")
 	@RequestMapping(value="/showAll")
 	public ModelAndView showAll() {
 		ArrayList <Personne> al =(ArrayList<Personne>) personneRepository.findAll();

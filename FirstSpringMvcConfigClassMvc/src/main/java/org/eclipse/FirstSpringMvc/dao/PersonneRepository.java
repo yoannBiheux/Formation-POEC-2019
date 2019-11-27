@@ -8,5 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface PersonneRepository extends JpaRepository<Personne, Long> 
 {
 	List<Personne> findByNomAndPrenom(String nom, String prenom);
+	
+	Personne findByNom (String nom);
 
 }

@@ -1,6 +1,6 @@
 package org.eclipse.FirstSpringMvc.model;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +9,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
 @Entity
-public class Adresse implements Serializable{
+@Table(name = "adresses")
+public class Adresse {
 	
 	@Id 
 	@GeneratedValue

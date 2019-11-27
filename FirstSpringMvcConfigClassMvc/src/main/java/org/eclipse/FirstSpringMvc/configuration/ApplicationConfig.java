@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan(basePackages = "org.eclipse.FirstSpringMvc.controller")
+@ComponentScan(basePackages = "org.eclipse.FirstSpringMvc.controller, org.eclipse.FirstSpringMvc.security, org.eclipse.FirstSpringMvc.service")
 @EnableJpaRepositories("org.eclipse.FirstSpringMvc.dao")
 @EnableTransactionManagement
 public class ApplicationConfig {
@@ -40,8 +40,8 @@ public class ApplicationConfig {
 		vendorAdapter.setGenerateDdl(true);
 		vendorAdapter.setShowSql(true);
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-		factory.setJpaVendorAdapter(vendorAdapter);
 		factory.setPackagesToScan("org.eclipse.FirstSpringMvc.model");
+		factory.setJpaVendorAdapter(vendorAdapter);
 		factory.setDataSource(dataSource());
 		return factory;
 	}

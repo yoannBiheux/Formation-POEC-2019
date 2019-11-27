@@ -1,6 +1,6 @@
 package org.eclipse.FirstSpringMvc.model;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-
-
-
-
 @Entity
 @Table(name = "personnes")
-public class Personne implements Serializable 
+public class Personne  
 {
 	@Id 
 	@GeneratedValue
@@ -78,7 +74,7 @@ public class Personne implements Serializable
 	public boolean add(Adresse e) {
 		return adresses.add(e);
 	}
-	public boolean remove(Object o) {
+	public boolean remove(Adresse o) {
 		return adresses.remove(o);
 	}
 	
