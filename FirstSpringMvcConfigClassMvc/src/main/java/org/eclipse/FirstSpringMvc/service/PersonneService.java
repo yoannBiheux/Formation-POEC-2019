@@ -15,7 +15,7 @@ public class PersonneService {
 	@Autowired
 	private PersonneRepository personneRepository;
 	
-	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_USER') and hasRole('ROLE_ADMIN')")
 	public List <Personne> findAll(){
 		return personneRepository.findAll();
 	}

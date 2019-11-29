@@ -45,27 +45,7 @@ public class PersonneRestController {
 //	}
 	@PostMapping("/personnes")
 	public Personne addPersonne(@RequestBody Personne personne) {
-		System.out.println(personne);
-		List<Adresse> adresses = personne.getAdresses();
-		for(Adresse adresse : adresses)
-		{
-			Adresse adr = null;
-			if(adresse!=null)
-			{
-				System.out.println(adresse);
-				System.out.println(adr);
-				System.out.println(adresse.getId());
-				adr = adresseRepository.findById(adresse.getId()).orElse(null);
-				System.out.println(adr);
-				adresses.set(adresses.indexOf(adresse), adr);
-				System.out.println(adresses);
-			}
-			else
-			{
-				adr = adresseRepository.save(adresse);
-			}
 
-		}
 		return personneRepository.saveAndFlush(personne);
 	}
 	
